@@ -63,10 +63,20 @@ function playRound(humanChoice, computerChoice){
      }
      console.log(`human: ${humanScore}, computer: ${computerScore}`);
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+
+// FUNCTION playGame to play 5 rounds
+function playGame(){
+    let i = 0;
+    while (i < 5) {
+        i++;
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+}
+ 
+playGame();
 //INPUT GET choice of type string
 // opponentChoice of type string = function randomChoice
 //CASE  of choice:
