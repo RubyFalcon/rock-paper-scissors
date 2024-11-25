@@ -67,16 +67,37 @@ function playRound(humanChoice, computerChoice){
 
 // FUNCTION playGame to play 5 rounds
 function playGame(){
-    let i = 0;
-    while (i < 5) {
-        i++;
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-}
+    
+        const buttons = document.querySelector("div")
+        buttons.addEventListener("click", (e)=> {
+            const target = e.target;
+           
+            if (target.id == 'rock' || target.id =='paper' || target.id == 'scissors'){
+                const computerSelection = getComputerChoice();
+                let humanChoice;
+                switch(target.id) {
+                    case('rock'):
+                    humanChoice = 'rock';
+                    console.log('rock');
+                    break;
+                    case('scissors'):
+                    humanChoice = 'scissors';
+                    break;
+                    case('paper'):
+                    humanChoice = 'paper';
+                    break;
+                }
+                playRound(humanChoice, computerSelection);  
+            }
+            
+        })
+        
+        
+     
  
-playGame();
+}
+ playGame();
+
 //INPUT GET choice of type string
 // opponentChoice of type string = function randomChoice
 //CASE  of choice:
