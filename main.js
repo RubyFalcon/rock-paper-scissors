@@ -48,20 +48,26 @@ let computerScore = 0;
 //FUNCTION playRound()
 // compare choices and return a winner
 function playRound(humanChoice, computerChoice){
-   
+    const results = document.querySelector(".results");
+    const result = document.createElement("p");
+    let humanScorecontainter = document.querySelector('#humanscore');
+    let computerScorecontainer = document.querySelector('#computerscore')
      if(humanChoice == computerChoice){
-        
+        result.textContent = "It's a draw!";
         console.log("Its a draw");
      }
      else if((humanChoice== 'rock' && computerChoice == 'scissors') || (humanChoice == 'paper' && computerChoice == 'rock' ) || (humanChoice == 'scissors' && computerChoice == 'paper')){
-        console.log("Congrats you won!");
+        result.textContent = "Congrats you won!";
         humanScore += 1;
      }
      else {
-        console.log('You lost, unlucky')
+        result.textContent = 'You lost, unlucky';
         computerScore += 1;
      }
-     console.log(`human: ${humanScore}, computer: ${computerScore}`);
+     results.appendChild(result);
+     humanScorecontainter.textContent = humanScore;
+     computerScorecontainer.textContent = computerScore;
+    //  console.log(`human: ${humanScore}, computer: ${computerScore}`);
 }
 
 
