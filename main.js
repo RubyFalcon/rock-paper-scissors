@@ -48,8 +48,7 @@ let computerScore = 0;
 //FUNCTION playRound()
 // compare choices and return a winner
 function playRound(humanChoice, computerChoice){
-    const results = document.querySelector(".results");
-    const result = document.createElement("p");
+    const result = document.querySelector("#result");
     let humanScorecontainter = document.querySelector('#humanscore');
     let computerScorecontainer = document.querySelector('#computerscore')
      if(humanChoice == computerChoice){
@@ -64,7 +63,6 @@ function playRound(humanChoice, computerChoice){
         result.textContent = 'You lost, unlucky';
         computerScore += 1;
      }
-     results.appendChild(result);
      humanScorecontainter.textContent = humanScore;
      computerScorecontainer.textContent = computerScore;
     //  console.log(`human: ${humanScore}, computer: ${computerScore}`);
