@@ -52,24 +52,31 @@ function playRound(humanChoice, computerChoice){
     let humanScorecontainter = document.querySelector('#humanscore');
     let computerScorecontainer = document.querySelector('#computerscore')
      if(humanChoice == computerChoice){
-        result.textContent = "It's a draw!";
+        result.textContent = `Both of you chose ${humanChoice}`;
         console.log("Its a draw");
      }
      else if((humanChoice== 'rock' && computerChoice == 'scissors') || (humanChoice == 'paper' && computerChoice == 'rock' ) || (humanChoice == 'scissors' && computerChoice == 'paper')){
-        result.textContent = "Congrats you won!";
+        
         humanScore += 1;
      }
      else {
-        result.textContent = 'You lost, unlucky';
+        
         computerScore += 1;
      }
+
+
      humanScorecontainter.textContent = humanScore;
      computerScorecontainer.textContent = computerScore;
-    //  console.log(`human: ${humanScore}, computer: ${computerScore}`);
+     if (humanScore == 5){
+        result.textContent = "Congrats you won!";
+     }
+     else if (computerScore == 5){
+        result.textContent = 'You lost, unlucky';
+     }
+
 }
 
 
-// FUNCTION playGame to play 5 rounds
 function playGame(){
     
         const buttons = document.querySelector("div")
@@ -82,7 +89,6 @@ function playGame(){
                 switch(target.id) {
                     case('rock'):
                     humanChoice = 'rock';
-                    console.log('rock');
                     break;
                     case('scissors'):
                     humanChoice = 'scissors';
